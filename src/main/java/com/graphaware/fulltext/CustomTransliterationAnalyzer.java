@@ -22,14 +22,14 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 
 /**
- * {@link Analyzer} for Czech language.
+ * {@link Analyzer} with transliteration.
  * <p>
  * Supports an external list of stopwords (words that will not be indexed at
  * all). A default set of stopwords is used unless an alternative list is
  * specified.
  * </p>
  */
-public final class CustomCzechAnalyzer extends StopwordAnalyzerBase {
+public final class CustomTransliterationAnalyzer extends StopwordAnalyzerBase {
     /** File containing default Czech stopwords. */
     public final static String DEFAULT_STOPWORD_FILE = "stopwords.txt";
 
@@ -63,7 +63,7 @@ public final class CustomCzechAnalyzer extends StopwordAnalyzerBase {
     /**
      * Builds an analyzer with the default stop words ({@link #getDefaultStopSet()}).
      */
-    public CustomCzechAnalyzer() {
+    public CustomTransliterationAnalyzer() {
         this(DefaultSetHolder.DEFAULT_SET);
     }
 
@@ -72,7 +72,7 @@ public final class CustomCzechAnalyzer extends StopwordAnalyzerBase {
      *
      * @param stopwords a stopword set
      */
-    public CustomCzechAnalyzer(CharArraySet stopwords) {
+    public CustomTransliterationAnalyzer(CharArraySet stopwords) {
         this(stopwords, CharArraySet.EMPTY_SET);
     }
 
@@ -83,7 +83,7 @@ public final class CustomCzechAnalyzer extends StopwordAnalyzerBase {
      * @param stopwords a stopword set
      * @param stemExclusionTable a stemming exclusion set
      */
-    public CustomCzechAnalyzer(CharArraySet stopwords, CharArraySet stemExclusionTable) {
+    public CustomTransliterationAnalyzer(CharArraySet stopwords, CharArraySet stemExclusionTable) {
         super(stopwords);
         this.stemExclusionTable = CharArraySet.unmodifiableSet(CharArraySet.copy(stemExclusionTable));
     }
