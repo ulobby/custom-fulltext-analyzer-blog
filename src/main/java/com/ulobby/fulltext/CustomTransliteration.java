@@ -1,6 +1,7 @@
-package com.graphaware.fulltext;
+package com.ulobby.fulltext;
 
 import org.apache.lucene.analysis.Analyzer;
+
 import org.neo4j.graphdb.index.fulltext.AnalyzerProvider;
 import org.neo4j.helpers.Service;
 
@@ -8,12 +9,12 @@ import org.neo4j.helpers.Service;
 public class CustomTransliteration extends AnalyzerProvider {
 
     public CustomTransliteration() {
-        super("transliteration-custom");
+        super("transliteration");
     }
 
     @Override
     public Analyzer createAnalyzer() {
-        return new CustomCzechAnalyzer();
+        return new CustomTransliterationAnalyzer();
     }
 
     @Override
